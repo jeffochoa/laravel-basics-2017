@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('layout', ['title' => 'Home']);
 });
+
+Route::resource('movie', 'MovieController');
