@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="release_date">Release Date</label>
                 <input class="form-control" type="date" name="release_date" id="release_date"
-                    value="{{ old('release_date', $movie->release_date) }}">
+                    value="{{ old('release_date', $movie->release_date->format('Y-m-d')) }}">
             </div>
             <div class="form-group">
                 <label for="length">Length (in hours)</label>

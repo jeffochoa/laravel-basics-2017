@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Genre;
 use App\Movie;
 use Illuminate\Http\Request;
+use App\Http\Requests\NewMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 
 class MovieController extends Controller
 {
@@ -38,7 +40,7 @@ class MovieController extends Controller
      *
      * @return Redirect to movies list passing a "success" var to the session
      */
-    public function store(Request $request)
+    public function store(NewMovieRequest $request)
     {
         Movie::create($request->except('_token'));
 
@@ -69,7 +71,7 @@ class MovieController extends Controller
      *
      * @return redirect to movies list passing a "success" var to the session
      */
-    public function update($movie, Request $request)
+    public function update($movie, UpdateMovieRequest $request)
     {
         $movie = Movie::find($movie)->update($request->except('_token', '_method'));
 
