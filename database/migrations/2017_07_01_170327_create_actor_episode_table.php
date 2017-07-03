@@ -30,6 +30,6 @@ class CreateActorEpisodeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor_episodes');
+        Schema::dropIfExists('actor_episode');
     }
 }

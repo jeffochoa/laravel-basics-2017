@@ -20,7 +20,8 @@ class CreateMoviesTable extends Migration
             $table->integer('awards')->unsigned();
             $table->timestamp('release_date');
             $table->integer('length')->unsigned();
-            $table->integer('genre_id')->references('id')->on('genres');
+            $table->integer('genre_id')->unsigned()->nullable();
+            $table->foreign('genre_id')->references('id')->on('genres');
             $table->timestamps();
         });
     }
@@ -32,6 +33,8 @@ class CreateMoviesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('movies');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
